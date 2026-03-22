@@ -1,0 +1,85 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stApp {
+    background-color: transparent;
+}
+
+h1 {
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  animation: fadeIn 1s;
+  text-shadow: 2px 2px 4px #000;
+}
+
+p {
+    color: #eee;
+    text-align: center;
+    animation: fadeIn 1.2s;
+    text-shadow: 1px 1px 2px #000;
+}
+
+.st-emotion-cache-16txtl3 {
+    padding: 2rem 2rem 1rem 2rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    animation: fadeIn 1.5s;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stButton>button {
+    width: 100%;
+    color: #fff;
+    background-color: #6a3093;
+    border-radius: 5px;
+    padding: 0.75rem 1rem;
+    border: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.stButton>button:hover {
+    background-color: #a044ff;
+}
+
+.stFileUploader {
+    text-align: center;
+}
+
+.st-emotion-cache-1kyxreq {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stImage {
+    animation: fadeIn 2s;
+    border: 5px solid #fff;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: #fff;
+    margin: 1rem 0;
+}
+
+.predictions-container {
+    animation: fadeIn 2.5s;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.prediction-item {
+    padding: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}

@@ -1,7 +1,7 @@
 import os
 import cv2
 import numpy as np
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 from sklearn.ensemble import GradientBoostingClassifier, ExtraTreesClassifier, BaggingClassifier
 from sklearn.tree import DecisionTreeClassifier
@@ -60,7 +60,21 @@ results = {}
 
 for name, model in models.items():
     print(f"🚀 Training {name}...")
-    model.fit(X_train, y_train)
+    
+    if name == "LightGBM":
+        print("⚡️ Hyperparameter tuning for LightGBM...")
+        param_grid = {
+            'n_estimators': [100, 200],
+            'learning_rate': [0.05, 0.1],
+            'num_leaves': [31, 50]
+        }
+        grid = GridSearchCV(LGBMClassifier(), param_grid, refit=True, verbose=2, cv=3)
+        grid.fit(X_train, y_train)
+        print(f"Best params for LightGBM: {grid.best_params_}")
+        model = grid.best_estimator_
+    else:
+        model.fit(X_train, y_train)
+
     y_pred = model.predict(X_test)
 
     acc = accuracy_score(y_test, y_pred)
