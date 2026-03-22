@@ -1,6 +1,7 @@
 numpy
 streamlit
 opencv-python
+opencv-python-headless
 scikit-learn
 lightgbm
 catboost
